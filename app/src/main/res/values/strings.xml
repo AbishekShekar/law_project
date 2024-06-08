@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">LawAssistant</string>
+    <string name="BASKAR">BASKAR</string>
+    <string name="baskarDesc">Baskar have an exceptional ability to analyze complex legal issues and provide clear and effective solutions.
+        \nYour passion for justice and advocacy is inspiring, and your clients are fortunate to have you representing them.</string>
+    //maggi
+    <string name="ARUNAN">ARUNAN
+</string>
+    <string name="arunanDesc">Arunan have an exceptional ability to analyze complex legal issues and provide clear and effective solutions.
+        \nYour passion for justice and advocacy is inspiring, and your clients are fortunate to have you representing them.</string>
+    //cake
+    <string name="PRABAKAR">pRABAKAR</string>
+    <string name="prabakarDesc">Prabakar have an exceptional ability to analyze complex legal issues and provide clear and effective solutions.
+        \nYour passion for justice and advocacy is inspiring, and your clients are fortunate to have you representing them.</string>
+    //pancake
+    <string name="DEEBA">DEEBA</string>
+    <string name="deebaDesc">Deeba have an exceptional ability to analyze complex legal issues and provide clear and effective solutions.
+        \nYour passion for justice and advocacy is inspiring, and your clients are fortunate to have you representing them.</string>
+    //pizza
+    <string name="NIVE">NIVE
+</string>
+    <string name="niveDesc">Nive have an exceptional ability to analyze complex legal issues and provide clear and effective solutions.
+        \nYour passion for justice and advocacy is inspiring, and your clients are fortunate to have you representing them.</string>
+    //burgers
+    <string name="JAGAN">JAGANATHAN</string>
+    <string name="jaganDesc">Jagan have an exceptional ability to analyze complex legal issues and provide clear and effective solutions.
+        \nYour passion for justice and advocacy is inspiring, and your clients are fortunate to have you representing them.</string>
+    //fries
+    <string name="CHITRA">CHITRA</string>
+    <string name="chitraDesc">Chitra have an exceptional ability to analyze complex legal issues and provide clear and effective solutions.
+        \nYour passion for justice and advocacy is inspiring, and your clients are fortunate to have you representing them.</string>
+</resources>
