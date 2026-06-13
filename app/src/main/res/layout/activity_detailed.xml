@@ -1,96 +1,159 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".DetailedActivity">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/detailName"
-        android:layout_marginTop="14dp"
-        android:text="Recipe Name"
-        android:textSize="24sp"
-        android:textColor="@color/lavender"
-        android:textStyle="bold"
-        android:layout_gravity="center"/>
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="380dp"
-        android:layout_height="200dp"
-        android:id="@+id/cardImage"
-        android:layout_marginTop="10dp"
-        android:layout_gravity="center"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="8dp">
-
-        <ImageView
-            android:id="@+id/detailImage"
-            android:layout_width="380dp"
-            android:layout_height="200dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/ad" />
-
-    </androidx.cardview.widget.CardView>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Lawyer Type"
-        android:textColor="@color/lavender"
-        android:textStyle="bold"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="30dp"
-        android:textSize="18sp"/>
-
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="time"
-        android:layout_marginStart="10dp"
-        android:textSize="16sp"
-        android:id="@+id/detailTime"/>
+        android:orientation="vertical"
+        android:padding="16dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Name"
-        android:textColor="@color/lavender"
-        android:textStyle="bold"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="20dp"
-        android:textSize="18sp"/>
+        <!-- Advocate Image -->
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/ARUNAN"
-        android:layout_marginStart="10dp"
-        android:textSize="16sp"
-        android:id="@+id/detailIngredients"/>
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="8dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="About"
-        android:textColor="@color/lavender"
-        android:textStyle="bold"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="20dp"
-        android:textSize="18sp"/>
+            <ImageView
+                android:id="@+id/detailImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ad"/>
+        </androidx.cardview.widget.CardView>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/arunanDesc"
-        android:layout_marginStart="10dp"
-        android:textSize="16sp"
-        android:id="@+id/detailDesc"/>
+        <!-- Name -->
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/detailName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Advocate Name"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"/>
+
+        <!-- Specialization -->
+
+        <TextView
+            android:id="@+id/detailSpecialization"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Criminal Lawyer"
+            android:textSize="18sp"
+            android:layout_marginTop="8dp"/>
+
+        <!-- Rating -->
+
+        <RatingBar
+            android:id="@+id/detailRating"
+            style="?android:attr/ratingBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:stepSize="0.5"
+            android:layout_marginTop="8dp"/>
+
+        <!-- Experience -->
+
+        <TextView
+            android:id="@+id/detailExperience"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Experience: 12 Years"
+            android:textSize="16sp"
+            android:layout_marginTop="12dp"/>
+
+        <!-- Location -->
+
+        <TextView
+            android:id="@+id/detailLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Location: Madurai"
+            android:textSize="16sp"
+            android:layout_marginTop="6dp"/>
+
+        <!-- Phone -->
+
+        <TextView
+            android:id="@+id/detailPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Phone: +91XXXXXXXXXX"
+            android:textSize="16sp"
+            android:layout_marginTop="6dp"/>
+
+        <!-- Email -->
+
+        <TextView
+            android:id="@+id/detailEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email: example@gmail.com"
+            android:textSize="16sp"
+            android:layout_marginTop="6dp"/>
+
+        <!-- About -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="About Advocate"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:id="@+id/detailDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Advocate description..."
+            android:textSize="16sp"
+            android:layout_marginTop="8dp"/>
+
+        <!-- Action Buttons -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="20dp">
+
+            <Button
+                android:id="@+id/btnCall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Call"/>
+
+            <Button
+                android:id="@+id/btnEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email"
+                android:layout_marginStart="10dp"/>
+
+            <Button
+                android:id="@+id/btnWhatsApp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="WhatsApp"
+                android:layout_marginStart="10dp"/>
+            <Button
+                android:id="@+id/btnMap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Map"
+                android:layout_marginStart="10dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

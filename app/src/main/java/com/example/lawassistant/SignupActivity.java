@@ -1,66 +1,179 @@
 package com.example.lawassistant;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import android.util.Patterns;
+import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.lawassistant.databinding.ActivitySignupBinding;
 
 public class SignupActivity extends AppCompatActivity {
 
-    ActivitySignupBinding binding;
-    DatabaseHelper databaseHelper;
+    private ActivitySignupBinding binding;
+    private DatabaseHelper databaseHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivitySignupBinding.inflate(getLayoutInflater());
+
+        binding = ActivitySignupBinding.inflate(
+                getLayoutInflater()
+        );
+
         setContentView(binding.getRoot());
 
         databaseHelper = new DatabaseHelper(this);
 
-        binding.signupButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String email = binding.signupEmail.getText().toString();
-                String password = binding.signupPassword.getText().toString();
-                String confirmPassword = binding.signupConfirm.getText().toString();
+        Spinner userTypeSpinner =
+                findViewById(R.id.userTypeSpinner);
 
-                if (email.equals("") || password.equals("") || confirmPassword.equals(""))
-                    Toast.makeText(SignupActivity.this, "All fields are mandatory", Toast.LENGTH_SHORT).show();
-                else {
-                    if (password.equals(confirmPassword)) {
-                        Boolean checkUserEmail = databaseHelper.checkEmail(email);
+        binding.signupButton.setOnClickListener(v -> {
+            String fullName =
+                    binding.signupName.getText()
+                            .toString()
+                            .trim();
+            if(fullName.isEmpty()){
+                binding.signupName.setError("Required");
+                return;
+            }
+            String email =
+                    binding.signupEmail
+                            .getText()
+                            .toString()
+                            .trim();
 
-                        if (checkUserEmail == false) {
-                            Boolean insert = databaseHelper.insertData(email, password);
+            String password =
+                    binding.signupPassword
+                            .getText()
+                            .toString()
+                            .trim();
 
-                            if (insert == true) {
-                                Toast.makeText(SignupActivity.this, "Signup Successfully!", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-                                startActivity(intent);
-                            } else {
-                                Toast.makeText(SignupActivity.this, "Signup Failed!", Toast.LENGTH_SHORT).show();
-                            }
-                        } else {
-                            Toast.makeText(SignupActivity.this, "User already exists! Please login", Toast.LENGTH_SHORT).show();
-                        }
-                    } else {
-                        Toast.makeText(SignupActivity.this, "Invalid Password!", Toast.LENGTH_SHORT).show();
-                    }
-                }
+            String confirmPassword =
+                    binding.signupConfirm
+                            .getText()
+                            .toString()
+                            .trim();
+
+            String userType =
+                    userTypeSpinner
+                            .getSelectedItem()
+                            .toString();
+
+            if (email.isEmpty()
+                    || password.isEmpty()
+                    || confirmPassword.isEmpty()) {
+
+                Toast.makeText(
+                        this,
+                        "Please fill all fields",
+                        Toast.LENGTH_SHORT
+                ).show();
+
+                return;
+            }
+
+            if (!Patterns.EMAIL_ADDRESS
+                    .matcher(email)
+                    .matches()) {
+
+                binding.signupEmail
+                        .setError(
+                                "Invalid Email"
+                        );
+
+                return;
+            }
+
+            if (password.length() < 8) {
+
+                binding.signupPassword
+                        .setError(
+                                "Minimum 8 characters"
+                        );
+
+                return;
+            }
+
+            if (!password.equals(confirmPassword)) {
+
+                Toast.makeText(
+                        this,
+                        "Passwords do not match",
+                        Toast.LENGTH_SHORT
+                ).show();
+
+                return;
+            }
+            if(!binding.termsCheckBox.isChecked()){
+                Toast.makeText(
+                        this,
+                        "Accept Terms & Conditions",
+                        Toast.LENGTH_SHORT
+                ).show();
+                return;
+            }
+
+            boolean userExists =
+                    databaseHelper.checkEmail(email);
+
+            if (userExists) {
+
+                Toast.makeText(
+                        this,
+                        "User already exists. Please login.",
+                        Toast.LENGTH_LONG
+                ).show();
+
+                return;
+            }
+
+            boolean inserted =
+                    databaseHelper.insertData(
+                            email,
+                            password,
+                            userType
+                    );
+
+            if (inserted) {
+
+                Toast.makeText(
+                        this,
+                        "Account Created Successfully",
+                        Toast.LENGTH_SHORT
+                ).show();
+
+                startActivity(
+                        new Intent(
+                                SignupActivity.this,
+                                LoginActivity.class
+                        )
+                );
+
+                finish();
+
+            } else {
+
+                Toast.makeText(
+                        this,
+                        "Registration Failed",
+                        Toast.LENGTH_SHORT
+                ).show();
             }
         });
-        binding.loginRedirectText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
-                startActivity(intent);
-            }
+
+        binding.loginRedirectText.setOnClickListener(v -> {
+
+            startActivity(
+                    new Intent(
+                            SignupActivity.this,
+                            LoginActivity.class
+                    )
+            );
+
+            finish();
         });
     }
 }

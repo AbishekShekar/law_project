@@ -1,74 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/a"
-    android:orientation="vertical"
-    tools:context=".LoginActivity">
+    android:background="@drawable/download">
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:padding="24dp">
 
-        <LinearLayout
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="40dp"
+            android:src="@drawable/la"
+            android:scaleType="centerCrop"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="AI LAW ASSISTANT"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="#9E7602"
+            android:layout_marginTop="12dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Legal Guidance Powered by AI"
+            android:textSize="14sp"
+            android:layout_marginBottom="30dp"/>
+
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            app:cardCornerRadius="20dp"
+            app:cardElevation="8dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="500dp"
                 android:orientation="vertical"
                 android:padding="20dp">
 
-
                 <EditText
                     android:id="@+id/login_email"
-                    android:layout_width="350dp"
+                    android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:layout_marginTop="30dp"
-                    android:background="@drawable/lavender_border"
-                    android:drawableLeft="@drawable/baseline_email_24"
-                    android:drawablePadding="8dp"
-                    android:hint="Email"
-                    android:padding="8dp"/>
+                    android:hint="Email Address"
+                    android:inputType="textEmailAddress"
+                    android:drawableStart="@drawable/baseline_email_24"
+                    android:drawablePadding="8dp"/>
 
                 <EditText
                     android:id="@+id/login_password"
-                    android:layout_width="350dp"
+                    android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:layout_marginTop="20dp"
-                    android:background="@drawable/lavender_border"
-                    android:drawableLeft="@drawable/baseline_lock_24"
-                    android:drawablePadding="8dp"
+                    android:layout_marginTop="16dp"
                     android:hint="Password"
                     android:inputType="textPassword"
-                    android:padding="8dp" />
+                    android:drawableStart="@drawable/baseline_lock_24"
+                    android:drawablePadding="8dp"/>
+
+                <CheckBox
+                    android:id="@+id/rememberMe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Remember Me"
+                    android:layout_marginTop="10dp"/>
+
+                <TextView
+                    android:id="@+id/forgotPassword"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Forgot Password?"
+                    android:textColor="@color/lavender"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="8dp"/>
 
                 <Button
                     android:id="@+id/login_button"
-                    android:layout_width="350dp"
-                    android:layout_height="70dp"
-                    android:layout_marginTop="30dp"
-                    android:text="Login"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:text="LOGIN"
                     android:textSize="18sp"
-                    app:cornerRadius="30dp" />
-
-                <TextView
-                    android:id="@+id/signupRedirectText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="14dp"
-                    android:padding="8dp"
-                    android:text="Not yet registered? Signup"
-                    android:textColor="@color/lavender"
-                    android:textSize="18sp" />
+                    android:layout_marginTop="20dp"
+                    app:cornerRadius="30dp"/>
 
             </LinearLayout>
-        </LinearLayout>
-    </ScrollView>
-</LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/signupRedirectText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Don't have an account? Sign Up"
+            android:textColor="@color/gold"
+            android:textSize="16sp"
+            android:layout_marginTop="20dp"/>
+
+    </LinearLayout>
+
+</ScrollView>

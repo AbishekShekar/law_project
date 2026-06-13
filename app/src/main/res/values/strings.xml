@@ -1,4 +1,9 @@
 <resources>
+    <string-array name="user_types">
+        <item>Client</item>
+        <item>Advocate</item>
+    </string-array>
+
     <string name="app_name">LawAssistant</string>
     <string name="BASKAR">BASKAR</string>
     <string name="baskarDesc">Baskar have an exceptional ability to analyze complex legal issues and provide clear and effective solutions.
